@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace YaFotki
 {
-	public partial class Form1 : Form
+	public partial class fWork : Form
 	{
-		public Form1()
+		public fWork()
 		{
 			InitializeComponent();
+		}
+
+		private void fWork_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void fWork_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			e.Cancel = true;
 		}
 	}
 }

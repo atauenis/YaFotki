@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Saveall_6518" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Saveall_6518.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_6530" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save_6530.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAApsq7/6LS0/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAfrp2/zy+bP8L9/f/Kevr/5zT1P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAKTDoP9fslX/RbhY/xLs3P8J+Pj/J+no/zdeYf9gw5z/AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIm8gv9ask//PrhW/xLr1/8O8uz/Hejl/z/Ikv8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApcKg/16yU/9Irzv/Orti/xvl2/8d6Ov/Oc2c/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ97AKPrrb/Qaxf9UewQv9Irjv/J9rF/x3o
+        7P9HyZf/SrppBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ97AGBpNv/I2bp/yXC0f9Etlr/SLBB/0iu
+        PP8l3Mv/Hufq/3HJqP8AAAAAAAAAAAAAAAAAAAAAAAAAACQ97AFnhuD/Hbnt/yJc7P8c3fL/KtjA/0G6
+        Z/9HsUb/SK07/yzUsv8r2cH/zMzM/wAAAAAAAAAAAAAAAAAAAABzet3/HbLu/x7K7f8bi/H/FN73/xrp
+        8v8d2urwRahNykitOv9hu1j/T8d+/3C6dP8AAAAAAAAAAAAAAACcm9X/Imjt/x7U7v8if+r/Gqn1/xPR
+        9/8QyPj/krXZ/5O9kP9IrDr/AAAA/2G7WP9FnFf/a2pt/3V1d/91dXf/bmre/ziE6f9XdeP/MVfq/xi4
+        9f8bovb/eKfg/wAAAABIrDoGZbRa/0isOv9NrT//OHYyUAAAAAAAAAAAAAAAAAAAAAAAAAAApqzT/ydt
+        7v8eiPP/WX7m/wAAAAAAAAAAAAAAAAAAAABIrDpaSKw6MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG57
+        3v8haPD/QFTp/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQ9
+        7AY8Tef/Lj7r/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAOEXo/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAn/8AAAf/AAAA/wAAwH8AAOA/AADgDwAAwA8AAIAHAACAB4cyAAAAAAEHhzLDzwAAx/9AMo//
+        AADf/0Ay//8EAA==
+</value>
   </data>
 </root>
