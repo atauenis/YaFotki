@@ -186,11 +186,17 @@ namespace YaFotki
 			fw.Hide();
 		}
 
-		private void bProcess_Click(object sender, EventArgs e)
+		private void bSave_Click(object sender, EventArgs e)
 		{
-			
-			MessageBox.Show("Функция работает в режиме имитации.");
-			if (Program.SaveTo == null) MessageBox.Show("Не назначена папка для сохранения.","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+			if (!Program.Save)
+			{
+				if (MessageBox.Show("Сохранение отключено. Работает режим имитации.", "Экспорт Фоток", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk) == DialogResult.Cancel) return;
+			}
+			if (Program.LocalBase == null)
+			{
+				MessageBox.Show("Не назначена папка для сохранения.", "Экспорт Фоток", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 			Process(true);
 		}
 

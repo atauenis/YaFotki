@@ -34,7 +34,7 @@
 			this.lbItems = new System.Windows.Forms.ListBox();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.lStatus = new System.Windows.Forms.ToolStripStatusLabel();
-			this.bProcess = new System.Windows.Forms.Button();
+			this.bSave = new System.Windows.Forms.Button();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -99,23 +99,23 @@
 			this.lStatus.Size = new System.Drawing.Size(80, 17);
 			this.lStatus.Text = "Подготовка...";
 			// 
-			// bProcess
+			// bSave
 			// 
-			this.bProcess.Image = global::YaFotki.Properties.Resources.Saveall_6518;
-			this.bProcess.Location = new System.Drawing.Point(418, 9);
-			this.bProcess.Name = "bProcess";
-			this.bProcess.Size = new System.Drawing.Size(23, 23);
-			this.bProcess.TabIndex = 5;
-			this.bProcess.TabStop = false;
-			this.bProcess.UseVisualStyleBackColor = true;
-			this.bProcess.Click += new System.EventHandler(this.bProcess_Click);
+			this.bSave.Image = global::YaFotki.Properties.Resources.Save_6530;
+			this.bSave.Location = new System.Drawing.Point(418, 9);
+			this.bSave.Name = "bSave";
+			this.bSave.Size = new System.Drawing.Size(23, 23);
+			this.bSave.TabIndex = 5;
+			this.bSave.TabStop = false;
+			this.bSave.UseVisualStyleBackColor = true;
+			this.bSave.Click += new System.EventHandler(this.bSave_Click);
 			// 
 			// fList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(534, 562);
-			this.Controls.Add(this.bProcess);
+			this.Controls.Add(this.bSave);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.lbItems);
 			this.Controls.Add(this.bNext);
@@ -138,6 +138,6 @@
 		private System.Windows.Forms.ListBox lbItems;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel lStatus;
-		private System.Windows.Forms.Button bProcess;
+		private System.Windows.Forms.Button bSave;
 	}
 }

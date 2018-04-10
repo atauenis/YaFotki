@@ -43,13 +43,14 @@
 			this.bAllPhoto = new System.Windows.Forms.Button();
 			this.bTags = new System.Windows.Forms.Button();
 			this.bOpenLocal = new System.Windows.Forms.Button();
+			this.fbd = new System.Windows.Forms.FolderBrowserDialog();
+			this.cbSave = new System.Windows.Forms.CheckBox();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lLocal
 			// 
 			this.lLocal.AutoSize = true;
-			this.lLocal.Enabled = false;
 			this.lLocal.Location = new System.Drawing.Point(13, 13);
 			this.lLocal.Name = "lLocal";
 			this.lLocal.Size = new System.Drawing.Size(93, 13);
@@ -60,16 +61,15 @@
 			// 
 			this.tLocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.tLocal.Enabled = false;
 			this.tLocal.Location = new System.Drawing.Point(16, 30);
 			this.tLocal.Name = "tLocal";
 			this.tLocal.Size = new System.Drawing.Size(336, 20);
 			this.tLocal.TabIndex = 1;
+			this.tLocal.Text = "d:\\сашины\\YaFotki\\test\\";
 			// 
 			// bBrowseLocal
 			// 
 			this.bBrowseLocal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.bBrowseLocal.Enabled = false;
 			this.bBrowseLocal.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.bBrowseLocal.Location = new System.Drawing.Point(306, 13);
 			this.bBrowseLocal.Name = "bBrowseLocal";
@@ -77,6 +77,7 @@
 			this.bBrowseLocal.TabIndex = 2;
 			this.bBrowseLocal.Text = "Обзор";
 			this.bBrowseLocal.UseVisualStyleBackColor = true;
+			this.bBrowseLocal.Click += new System.EventHandler(this.bBrowseLocal_Click);
 			// 
 			// lUser
 			// 
@@ -193,11 +194,28 @@
 			this.bOpenLocal.UseVisualStyleBackColor = true;
 			this.bOpenLocal.Click += new System.EventHandler(this.bOpenLocal_Click);
 			// 
+			// fbd
+			// 
+			this.fbd.Description = "Выберите расположение локальной базы";
+			// 
+			// cbSave
+			// 
+			this.cbSave.AutoSize = true;
+			this.cbSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.cbSave.Location = new System.Drawing.Point(16, 150);
+			this.cbSave.Name = "cbSave";
+			this.cbSave.Size = new System.Drawing.Size(85, 18);
+			this.cbSave.TabIndex = 17;
+			this.cbSave.Text = "Сохранять";
+			this.cbSave.UseVisualStyleBackColor = true;
+			this.cbSave.CheckedChanged += new System.EventHandler(this.cbSave_CheckedChanged);
+			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(364, 197);
+			this.Controls.Add(this.cbSave);
 			this.Controls.Add(this.bOpenLocal);
 			this.Controls.Add(this.bTags);
 			this.Controls.Add(this.bAllPhoto);
@@ -238,6 +256,8 @@
 		private System.Windows.Forms.Button bAllPhoto;
 		private System.Windows.Forms.Button bTags;
 		private System.Windows.Forms.Button bOpenLocal;
+		private System.Windows.Forms.FolderBrowserDialog fbd;
+		private System.Windows.Forms.CheckBox cbSave;
 	}
 }
 

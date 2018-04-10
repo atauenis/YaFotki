@@ -34,6 +34,7 @@ namespace YaFotki
 			lStatus.Text = lDetected.Text = "";
 			string act = "Подготовка строки запроса.";
 			ApiPath = lApi.Text + tUser.Text + "/";
+			Program.LocalBase = tLocal.Text;
 			
 			try
 			{
@@ -43,6 +44,7 @@ namespace YaFotki
 				lStatus.Text = "Запрос " + ApiPath;
 				System.Net.Http.HttpClient hc = new System.Net.Http.HttpClient();
 				Stream atomStream = await hc.GetStreamAsync(ApiPath);
+				//UNDONE: перевести на Program.Open;
 				fw.Hide();
 				
 				act = "Обработка Atom";
@@ -56,7 +58,7 @@ namespace YaFotki
 				}
 
 				act = "Okay";
-				lStatus.Text = "Готово.";
+				lStatus.Text = "Готово. Сетевой режим.";
 			}
 			catch (Exception ex)
 			{
@@ -124,7 +126,7 @@ namespace YaFotki
 
 			fList fa = new fList();
 			fa.Show();
-			fa.LoadAlbums(await Program.Open(bAlbums.Tag.ToString()), false);
+			fa.LoadAlbums(await Program.Open(bAlbums.Tag.ToString()), false,"",true);
 
 			fw.Hide();
 		}
@@ -136,7 +138,7 @@ namespace YaFotki
 
 			fList fa = new fList();
 			fa.Show();
-			fa.LoadAlbums(await Program.Open(bTags.Tag.ToString()), true);
+			fa.LoadAlbums(await Program.Open(bTags.Tag.ToString()), true,"",true);
 
 			fw.Hide();
 		}
@@ -148,7 +150,7 @@ namespace YaFotki
 
 			fList fa = new fList();
 			fa.Show();
-			fa.LoadAlbums(await Program.Open(bAllPhoto.Tag.ToString()), true, "Все фото: ");
+			fa.LoadAlbums(await Program.Open(bAllPhoto.Tag.ToString()), true, "Все фото: ",true);
 
 			fw.Hide();
 		}
@@ -156,7 +158,20 @@ namespace YaFotki
 		private void bOpenLocal_Click(object sender, EventArgs e)
 		{
 			Program.VirtualBase = ApiPath;
-			Program.SaveTo = tLocal.Text;
+			Program.LocalBase = tLocal.Text;
+			Program.LocalOnly = true;
+			bUser_Click(null, null);
+		}
+
+		private void bBrowseLocal_Click(object sender, EventArgs e)
+		{
+			if (fbd.ShowDialog() != DialogResult.Cancel)
+			tLocal.Text = fbd.SelectedPath;
+		}
+
+		private void cbSave_CheckedChanged(object sender, EventArgs e)
+		{
+			Program.Save = cbSave.Checked;
 		}
 	}
 }
