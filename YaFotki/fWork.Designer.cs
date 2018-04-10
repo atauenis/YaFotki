@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fWork));
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.label1 = new System.Windows.Forms.Label();
+			this.lNoLocal = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// progressBar1
@@ -52,11 +53,21 @@
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.label1.UseWaitCursor = true;
 			// 
+			// lNoLocal
+			// 
+			this.lNoLocal.Location = new System.Drawing.Point(-7, 54);
+			this.lNoLocal.Name = "lNoLocal";
+			this.lNoLocal.Size = new System.Drawing.Size(298, 23);
+			this.lNoLocal.TabIndex = 2;
+			this.lNoLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lNoLocal.UseWaitCursor = true;
+			// 
 			// fWork
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 78);
+			this.Controls.Add(this.lNoLocal);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.progressBar1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -79,5 +90,6 @@
 
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lNoLocal;
 	}
 }

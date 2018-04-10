@@ -24,53 +24,77 @@ namespace YaFotki
 		private void Form1_Load(object sender, EventArgs e)
 		{
 #if !DEBUG
-			tUser.Text = "";
+			tUser.Text = Environment.UserName;
+			tLocal.Text = Directory.GetCurrentDirectory();
 #endif
 		}
 
-		private async void bUser_Click(object sender, EventArgs e)
+		private void bUser_Click(object sender, EventArgs e)
 		{
+			if (tLocal.Text.Length == 0 || tUser.Text.Length == 0)
+			{
+				MessageBox.Show("Введите локальный адрес и имя пользователя.","Экспорт Яндекс.Фоток",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+				return;
+			}
+
+			bAlbums.Enabled = bAllPhoto.Enabled = bTags.Enabled = false;
+			lDetected.Text = "";
+			if(cbLocal.Checked) {
+				Program.VirtualBase = ApiPath;
+				Program.LocalBase = tLocal.Text;
+				Program.LocalOnly = true;
+				LoadUser();
+			}
+			LoadUser();
+		}
+
+		private async void LoadUser() {
 			Application.UseWaitCursor = true;
 			lStatus.Text = lDetected.Text = "";
 			string act = "Подготовка строки запроса.";
 			ApiPath = lApi.Text + tUser.Text + "/";
 			Program.LocalBase = tLocal.Text;
 			Program.VirtualBase = ApiPath;
-			
+
+			fWork fw = new fWork();
+			fw.Show();
 			try
 			{
-				fWork fw = new fWork();
-				fw.Show();
+
 				act = "Загрузка API";
 				lStatus.Text = "Запрос " + ApiPath;
-				System.Net.Http.HttpClient hc = new System.Net.Http.HttpClient();
-				Stream atomStream = await hc.GetStreamAsync(ApiPath);
-				//UNDONE: перевести на Program.Open;
+				Stream atomStream = await Program.Open(ApiPath);
 				fw.Hide();
-				
+
 				act = "Обработка Atom";
 				lStatus.Text = "Получен ответ сервера. Разборка...";
 				XmlReader xr = XmlReader.Create(atomStream);
 
-				while (xr.Read()) {
-					if(xr.NodeType == XmlNodeType.Element) {
+				while (xr.Read())
+				{
+					if (xr.NodeType == XmlNodeType.Element)
+					{
 						if (xr.Name == "app:workspace") ParseWorkspace(xr);
 					}
 				}
 
 				act = "Okay";
-				lStatus.Text = "Готово. Сетевой режим.";
+				if(Program.LocalOnly) lStatus.Text = "Готово. Работа с локальной базой.";
+				else lStatus.Text = "Готово. Сетевой режим.";
+				atomStream.Close();
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Не выполнено: " + act + "\n" + ex.Message + "\n" + ex.StackTrace);
+				MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Не выполнено: " + act);
 				lStatus.Text = "Ошибка.";
-
+				
 			}
 			finally
 			{
 				Application.UseWaitCursor = false;
+				fw.Dispose();
 			}
+
 		}
 
 		//<app:workspace></>
@@ -161,7 +185,7 @@ namespace YaFotki
 			Program.VirtualBase = ApiPath;
 			Program.LocalBase = tLocal.Text;
 			Program.LocalOnly = true;
-			bUser_Click(null, null);
+			LoadUser();
 		}
 
 		private void bBrowseLocal_Click(object sender, EventArgs e)
@@ -173,6 +197,15 @@ namespace YaFotki
 		private void cbSave_CheckedChanged(object sender, EventArgs e)
 		{
 			Program.Save = cbSave.Checked;
+			cbLocal.Checked = false;
+			cbLocal.Enabled = !cbSave.Checked;
+		}
+
+		private void cbLocal_CheckedChanged(object sender, EventArgs e)
+		{
+			Program.LocalOnly = cbLocal.Checked;
+			cbSave.Checked = false;
+			cbSave.Enabled = !cbLocal.Checked;
 		}
 	}
 }

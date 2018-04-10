@@ -19,7 +19,7 @@ namespace YaFotki
 
 		private void fWork_Load(object sender, EventArgs e)
 		{
-
+			Program.NoLocal = lNoLocal;
 		}
 
 		private void fWork_FormClosing(object sender, FormClosingEventArgs e)

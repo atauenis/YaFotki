@@ -101,6 +101,7 @@
 			// 
 			// bSave
 			// 
+			this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.bSave.Image = global::YaFotki.Properties.Resources.Save_6530;
 			this.bSave.Location = new System.Drawing.Point(418, 9);
 			this.bSave.Name = "bSave";

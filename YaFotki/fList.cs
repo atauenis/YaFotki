@@ -70,6 +70,7 @@ namespace YaFotki
 
 				act = "Okay";
 				lStatus.Text = "Готово.";
+				atomStream.Close();
 			}
 			catch (Exception ex)
 			{
@@ -209,28 +210,6 @@ namespace YaFotki
 	}
 
 	public class AlbumEntry {
-		/*
-		<id>urn:yandex:fotki:atauenis:album:176838</id>
-		<author>
-		  <name>atauenis</name>
-		  <f:uid>26403844</f:uid>
-		</author>
-		<title>КВН-49-4 (1952 г.)</title>
-		<summary>Телевизор ламповый чёрно-белый. Самая первая по настоящему массовая модель телевизоров в СССР.</summary>
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/album/176838/" rel="self" />
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/album/176838/" rel="edit" />
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/album/176838/photos/" rel="photos" />
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/photo/615226/" rel="cover" />
-		<f:img height="75" href="https://img-fotki.yandex.ru/get/1126624/26403844.33/0_9633a_f19c26d0_XXS" size="XXS" width="75" />
-		<f:img height="100" href="https://img-fotki.yandex.ru/get/1126624/26403844.33/0_9633a_f19c26d0_S" size="S" width="150" />
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/album/176838/photos.ymapsml/" rel="ymapsml" />
-		<link href="https://fotki.yandex.ru/users/atauenis/album/176838/" rel="alternate" />
-		<published>2018-03-23T19:06:00Z</published>
-		<app:edited>2018-04-05T20:59:55Z</app:edited>
-		<updated>2018-04-05T20:59:55Z</updated>
-		<f:protected value="false" />
-		<f:image-count value="1" />
-		<link href="https://api-fotki.yandex.ru/api/users/atauenis/album/132860/" rel="album" />*/
 		public string id;
 		public string authorName;
 		public string authorFuid;
@@ -246,7 +225,7 @@ namespace YaFotki
 		public string fProtected;
 		public string fTmageCount;
 
-		public string fImgOrig;
+		public string fImgOrig;//можно добавить другие размеры, при желании
 		public string editMedia;
 		public string fCreated;
 		public string access;

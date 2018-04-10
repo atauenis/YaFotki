@@ -42,9 +42,10 @@
 			this.bAlbums = new System.Windows.Forms.Button();
 			this.bAllPhoto = new System.Windows.Forms.Button();
 			this.bTags = new System.Windows.Forms.Button();
-			this.bOpenLocal = new System.Windows.Forms.Button();
 			this.fbd = new System.Windows.Forms.FolderBrowserDialog();
 			this.cbSave = new System.Windows.Forms.CheckBox();
+			this.cbLocal = new System.Windows.Forms.CheckBox();
+			this.bOpenLocal = new System.Windows.Forms.Button();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -83,9 +84,9 @@
 			this.lUser.AutoSize = true;
 			this.lUser.Location = new System.Drawing.Point(12, 61);
 			this.lUser.Name = "lUser";
-			this.lUser.Size = new System.Drawing.Size(83, 13);
+			this.lUser.Size = new System.Drawing.Size(173, 13);
 			this.lUser.TabIndex = 3;
-			this.lUser.Text = "Пользователь:";
+			this.lUser.Text = "Удалённая база (пользователь):";
 			// 
 			// lApi
 			// 
@@ -181,27 +182,17 @@
 			this.bTags.UseVisualStyleBackColor = true;
 			this.bTags.Click += new System.EventHandler(this.bTags_Click);
 			// 
-			// bOpenLocal
-			// 
-			this.bOpenLocal.Enabled = false;
-			this.bOpenLocal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.bOpenLocal.Location = new System.Drawing.Point(276, 121);
-			this.bOpenLocal.Name = "bOpenLocal";
-			this.bOpenLocal.Size = new System.Drawing.Size(75, 23);
-			this.bOpenLocal.TabIndex = 16;
-			this.bOpenLocal.Text = "Разбэкап";
-			this.bOpenLocal.UseVisualStyleBackColor = true;
-			this.bOpenLocal.Click += new System.EventHandler(this.bOpenLocal_Click);
-			// 
 			// fbd
 			// 
 			this.fbd.Description = "Выберите расположение локальной базы";
 			// 
 			// cbSave
 			// 
+			this.cbSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbSave.AutoSize = true;
 			this.cbSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.cbSave.Location = new System.Drawing.Point(16, 150);
+			this.cbSave.Location = new System.Drawing.Point(276, 148);
 			this.cbSave.Name = "cbSave";
 			this.cbSave.Size = new System.Drawing.Size(85, 18);
 			this.cbSave.TabIndex = 17;
@@ -209,11 +200,39 @@
 			this.cbSave.UseVisualStyleBackColor = true;
 			this.cbSave.CheckedChanged += new System.EventHandler(this.cbSave_CheckedChanged);
 			// 
+			// cbLocal
+			// 
+			this.cbLocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.cbLocal.AutoSize = true;
+			this.cbLocal.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.cbLocal.Location = new System.Drawing.Point(276, 124);
+			this.cbLocal.Name = "cbLocal";
+			this.cbLocal.Size = new System.Drawing.Size(79, 18);
+			this.cbLocal.TabIndex = 18;
+			this.cbLocal.Text = "Из копии";
+			this.cbLocal.UseVisualStyleBackColor = true;
+			this.cbLocal.CheckedChanged += new System.EventHandler(this.cbLocal_CheckedChanged);
+			// 
+			// bOpenLocal
+			// 
+			this.bOpenLocal.Enabled = false;
+			this.bOpenLocal.FlatStyle = System.Windows.Forms.FlatStyle.System;
+			this.bOpenLocal.Location = new System.Drawing.Point(16, 148);
+			this.bOpenLocal.Name = "bOpenLocal";
+			this.bOpenLocal.Size = new System.Drawing.Size(75, 23);
+			this.bOpenLocal.TabIndex = 16;
+			this.bOpenLocal.Text = "Разбэкап";
+			this.bOpenLocal.UseVisualStyleBackColor = true;
+			this.bOpenLocal.Visible = false;
+			this.bOpenLocal.Click += new System.EventHandler(this.bOpenLocal_Click);
+			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(364, 197);
+			this.Controls.Add(this.cbLocal);
 			this.Controls.Add(this.cbSave);
 			this.Controls.Add(this.bOpenLocal);
 			this.Controls.Add(this.bTags);
@@ -254,9 +273,10 @@
 		private System.Windows.Forms.Button bAlbums;
 		private System.Windows.Forms.Button bAllPhoto;
 		private System.Windows.Forms.Button bTags;
-		private System.Windows.Forms.Button bOpenLocal;
 		private System.Windows.Forms.FolderBrowserDialog fbd;
 		private System.Windows.Forms.CheckBox cbSave;
+		private System.Windows.Forms.CheckBox cbLocal;
+		private System.Windows.Forms.Button bOpenLocal;
 	}
 }
 
