@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Net;
 
 namespace YaFotki
 {
@@ -27,15 +28,56 @@ namespace YaFotki
 
 		public static async Task<Stream> Open(string Address)
 		{
-			if(Save && Address.StartsWith("http"))
+			if (LocalOnly) return new FileStream(PreparePath(Address), FileMode.Open);
+
+			if (Save && Address.StartsWith("http"))
 			{
-				//todo: скачать в LocalBase;
-				Console.WriteLine("Можно качать {0} в {1}.",Address,LocalBase);
+				SaveUrl(Address, PreparePath(Address, true));
 			}
-			if (LocalOnly) return new FileStream(Address.Replace(VirtualBase, LocalBase), FileMode.Open);
 
 			if (Address.StartsWith("http")) return await new System.Net.Http.HttpClient().GetStreamAsync(Address);
 			else return new FileStream(Address, FileMode.Open);
+		}
+
+		public static string PreparePath(string Address, bool MakePath=false) {
+			//подготовка локального пути
+			string path = Address.Replace(VirtualBase, LocalBase).Replace("/?","!").Replace('/','\\').Replace(':', '$');
+			ReplaceCharInString(ref path, 1, ':');
+			if (path.EndsWith("\\")) path += "INDEX.XML";
+			if (!path.EndsWith(".XML")) path += ".XML";
+
+			//создание отсутствующих папок
+			if(MakePath) {
+				string dir = Path.GetDirectoryName(path);
+				if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+			}
+
+			return path;
+		}
+
+		public static void SaveUrl(string URL, string Where) 
+		{
+			//скачивание в LocalBase
+			Console.WriteLine("Скачивание {1}.", URL, Where);
+			try
+			{
+				WebClient wc = new WebClient();
+				wc.DownloadFile(URL, Where);
+			}
+			catch (Exception ex) {
+				MessageBox.Show("Ошибка при скачивании:\n"+URL+"\nВ:\n"+Where+"\n\n"+
+				ex.Message+"\n"+ex.StackTrace +"\n\n"+
+				ex.InnerException.ToString() ?? "Вложенного исключения нет."
+				, ex.GetType().ToString());
+				#if DEBUG
+				throw;
+				#endif
+			}
+		}
+
+		public static void ReplaceCharInString(ref String str, int index, Char newSymb)
+		{
+			str = str.Remove(index, 1).Insert(index, newSymb.ToString());
 		}
 	}
 }

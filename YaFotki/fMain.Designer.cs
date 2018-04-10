@@ -65,7 +65,6 @@
 			this.tLocal.Name = "tLocal";
 			this.tLocal.Size = new System.Drawing.Size(336, 20);
 			this.tLocal.TabIndex = 1;
-			this.tLocal.Text = "d:\\сашины\\YaFotki\\test\\";
 			// 
 			// bBrowseLocal
 			// 

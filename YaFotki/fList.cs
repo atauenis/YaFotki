@@ -150,16 +150,16 @@ namespace YaFotki
 			Process(url, true);
 		}
 
-		public async void Process(bool All=false) {
+		public async void Process(bool All=false, bool Close=false) {
 			//открыть все выбранные пункты
 			foreach(object o in lbItems.SelectedItems) {
 				string url = ((AlbumEntry)o).self;
 				if (!isAlbum && !url.Contains("photo/")) url += "photos/";
-				Process(url, true,"",All);
+				Process(url, true,"",All,Close);
 			}
 		}
 
-		public async void Process(string URL, bool IsAlbum, string WinTitle="", bool All=false) {
+		public async void Process(string URL, bool IsAlbum, string WinTitle="", bool All=false, bool Close=false) {
 			//открыть конкретный пункт
 			fWork fw = new fWork();
 			fw.Show();
@@ -170,6 +170,7 @@ namespace YaFotki
 					fPhoto fp = new fPhoto();
 					fp.Show();
 					fp.LoadPhoto(await Program.Open(URL));
+					if (Close) fp.Hide();
 				}
 				else
 				{ 
@@ -177,6 +178,7 @@ namespace YaFotki
 					fap.Show();
 					if (WinTitle == "") WinTitle = winTitle;
 					fap.LoadAlbums(await Program.Open(URL),IsAlbum, WinTitle, All);
+					if (Close) fap.Hide();
 				}
 			}
 			catch(Exception ex) {
@@ -197,7 +199,7 @@ namespace YaFotki
 				MessageBox.Show("Не назначена папка для сохранения.", "Экспорт Фоток", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			Process(true);
+			Process(true,true);
 		}
 
 		private void lbItems_SelectedIndexChanged(object sender, EventArgs e)

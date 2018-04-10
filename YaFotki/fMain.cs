@@ -35,6 +35,7 @@ namespace YaFotki
 			string act = "Подготовка строки запроса.";
 			ApiPath = lApi.Text + tUser.Text + "/";
 			Program.LocalBase = tLocal.Text;
+			Program.VirtualBase = ApiPath;
 			
 			try
 			{
