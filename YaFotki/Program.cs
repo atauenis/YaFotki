@@ -33,7 +33,7 @@ namespace YaFotki
 			{
 				string locPath = PreparePath(Address);
 				if(File.Exists(locPath)) return new FileStream(locPath, FileMode.Open);
-				NoLocal.Text = Address.Replace(VirtualBase, "~/") + " отсутствует в локальной базе.";
+				NoLocal.Text = Address.Replace(VirtualBase, "~/") + " нет в локальной базе.";
 				//если файл не скачан, будем брать из интернета
 			}
 

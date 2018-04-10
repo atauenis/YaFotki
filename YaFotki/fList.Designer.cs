@@ -96,6 +96,7 @@
 			// lStatus
 			// 
 			this.lStatus.Name = "lStatus";
+			this.lStatus.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
 			this.lStatus.Size = new System.Drawing.Size(80, 17);
 			this.lStatus.Text = "Подготовка...";
 			// 

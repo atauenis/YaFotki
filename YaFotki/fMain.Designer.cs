@@ -45,7 +45,6 @@
 			this.fbd = new System.Windows.Forms.FolderBrowserDialog();
 			this.cbSave = new System.Windows.Forms.CheckBox();
 			this.cbLocal = new System.Windows.Forms.CheckBox();
-			this.bOpenLocal = new System.Windows.Forms.Button();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -214,19 +213,6 @@
 			this.cbLocal.UseVisualStyleBackColor = true;
 			this.cbLocal.CheckedChanged += new System.EventHandler(this.cbLocal_CheckedChanged);
 			// 
-			// bOpenLocal
-			// 
-			this.bOpenLocal.Enabled = false;
-			this.bOpenLocal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-			this.bOpenLocal.Location = new System.Drawing.Point(16, 148);
-			this.bOpenLocal.Name = "bOpenLocal";
-			this.bOpenLocal.Size = new System.Drawing.Size(75, 23);
-			this.bOpenLocal.TabIndex = 16;
-			this.bOpenLocal.Text = "Разбэкап";
-			this.bOpenLocal.UseVisualStyleBackColor = true;
-			this.bOpenLocal.Visible = false;
-			this.bOpenLocal.Click += new System.EventHandler(this.bOpenLocal_Click);
-			// 
 			// fMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +220,6 @@
 			this.ClientSize = new System.Drawing.Size(364, 197);
 			this.Controls.Add(this.cbLocal);
 			this.Controls.Add(this.cbSave);
-			this.Controls.Add(this.bOpenLocal);
 			this.Controls.Add(this.bTags);
 			this.Controls.Add(this.bAllPhoto);
 			this.Controls.Add(this.bAlbums);
@@ -276,7 +261,6 @@
 		private System.Windows.Forms.FolderBrowserDialog fbd;
 		private System.Windows.Forms.CheckBox cbSave;
 		private System.Windows.Forms.CheckBox cbLocal;
-		private System.Windows.Forms.Button bOpenLocal;
 	}
 }
 

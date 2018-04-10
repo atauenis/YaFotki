@@ -99,6 +99,8 @@ namespace YaFotki
 					if (XR.Name == "title") {ae.title = XR.ReadInnerXml();}
 					if (XR.Name == "summary") {ae.summary = XR.ReadInnerXml();}
 					if (XR.Name == "link" && XR.GetAttribute("rel") == "self") {ae.self = XR.GetAttribute("href"); }
+					if (XR.Name == "link" && XR.GetAttribute("rel") == "photos") { ae.photos = XR.GetAttribute("href"); }
+					if (XR.Name == "link" && XR.GetAttribute("rel") == "cover") { ae.cover = XR.GetAttribute("href"); }
 					if (XR.Name == "published") {ae.published = XR.ReadInnerXml();}
 					if (XR.Name == "app:edited") {ae.edited = XR.ReadInnerXml();}
 					if (XR.Name == "updated") {ae.updated = XR.ReadInnerXml();}
@@ -146,8 +148,12 @@ namespace YaFotki
 
 		private async void lbItems_DoubleClick(object sender, EventArgs e)
 		{
-			string url = ((AlbumEntry)(lbItems.SelectedItem)).self;
-			if (!isAlbum && !url.Contains("photo/")) url += "photos/";
+			string url = ((AlbumEntry)(lbItems.SelectedItem)).photos;
+			if (url == null)
+			{
+				url = ((AlbumEntry)(lbItems.SelectedItem)).self;
+				if (!isAlbum && !url.Contains("photo/")) url += "photos/";//возможно, не лучший способ
+			}
 			Process(url, true);
 		}
 
@@ -205,7 +211,8 @@ namespace YaFotki
 
 		private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			lStatus.Text = ((AlbumEntry)lbItems.SelectedItem).self ?? "ВНИИМАНИЕ: NULL REFERENCE!";
+			if ((AlbumEntry)lbItems.SelectedItem == null) return;
+			lStatus.Text = ((AlbumEntry)lbItems.SelectedItem).self ?? "ВНИМАНИЕ: NULL REFERENCE!";
 		}
 	}
 
