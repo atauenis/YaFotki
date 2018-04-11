@@ -116,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon %281%29.ico" />
+    <Content Include="Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Save_6530.png" />
     <None Include="Resources\Saveall_6518.png" />
   </ItemGroup>

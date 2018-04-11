@@ -85,7 +85,7 @@ namespace YaFotki
 		}
 
 		//<entry></>
-		private void ParseEntry(XmlReader XR)
+		private async void ParseEntry(XmlReader XR)
 		{
 			AlbumEntry ae = new AlbumEntry();
 			while (XR.Read())
@@ -118,6 +118,14 @@ namespace YaFotki
 					if (XR.Name == "f:pod-date") {ae.fPodDate = XR.ReadInnerXml();}
 					if (XR.Name == "f:address-binding") {ae.fAddressBinding = XR.ReadInnerXml();}
 					if (XR.Name == "f:img" && XR.GetAttribute("size") == "orig") { ae.fImgOrig = XR.GetAttribute("href"); }
+					if (Program.SavePics && ae.fImgOrig != null)
+					{
+						fWork fw = new fWork();
+						fw.Show();
+						try { await Program.Open(ae.fImgOrig); }
+						catch { /*On Error Resume Next 'по барабану, качается же */ }
+						fw.Dispose();
+					}
 
 				}
 				if (XR.NodeType == XmlNodeType.EndElement)

@@ -103,7 +103,7 @@
 			this.tUser.Location = new System.Drawing.Point(203, 66);
 			this.tUser.Name = "tUser";
 			this.tUser.Size = new System.Drawing.Size(148, 20);
-			this.tUser.TabIndex = 5;
+			this.tUser.TabIndex = 3;
 			this.tUser.Text = "atauenis";
 			// 
 			// bUser
@@ -113,7 +113,7 @@
 			this.bUser.Location = new System.Drawing.Point(276, 92);
 			this.bUser.Name = "bUser";
 			this.bUser.Size = new System.Drawing.Size(75, 23);
-			this.bUser.TabIndex = 6;
+			this.bUser.TabIndex = 4;
 			this.bUser.Text = "Загрузить";
 			this.bUser.UseVisualStyleBackColor = true;
 			this.bUser.Click += new System.EventHandler(this.bUser_Click);
@@ -152,7 +152,7 @@
 			this.bAlbums.Location = new System.Drawing.Point(16, 121);
 			this.bAlbums.Name = "bAlbums";
 			this.bAlbums.Size = new System.Drawing.Size(75, 23);
-			this.bAlbums.TabIndex = 12;
+			this.bAlbums.TabIndex = 5;
 			this.bAlbums.Text = "Альбомы";
 			this.bAlbums.UseVisualStyleBackColor = true;
 			this.bAlbums.Click += new System.EventHandler(this.bAlbums_Click);
@@ -164,7 +164,7 @@
 			this.bAllPhoto.Location = new System.Drawing.Point(97, 121);
 			this.bAllPhoto.Name = "bAllPhoto";
 			this.bAllPhoto.Size = new System.Drawing.Size(75, 23);
-			this.bAllPhoto.TabIndex = 13;
+			this.bAllPhoto.TabIndex = 6;
 			this.bAllPhoto.Text = "Все фото";
 			this.bAllPhoto.UseVisualStyleBackColor = true;
 			this.bAllPhoto.Click += new System.EventHandler(this.bAllPhoto_Click);
@@ -176,7 +176,7 @@
 			this.bTags.Location = new System.Drawing.Point(178, 121);
 			this.bTags.Name = "bTags";
 			this.bTags.Size = new System.Drawing.Size(75, 23);
-			this.bTags.TabIndex = 14;
+			this.bTags.TabIndex = 7;
 			this.bTags.Text = "Теги";
 			this.bTags.UseVisualStyleBackColor = true;
 			this.bTags.Click += new System.EventHandler(this.bTags_Click);
@@ -194,7 +194,7 @@
 			this.cbSave.Location = new System.Drawing.Point(276, 148);
 			this.cbSave.Name = "cbSave";
 			this.cbSave.Size = new System.Drawing.Size(85, 18);
-			this.cbSave.TabIndex = 17;
+			this.cbSave.TabIndex = 9;
 			this.cbSave.Text = "Сохранять";
 			this.cbSave.UseVisualStyleBackColor = true;
 			this.cbSave.CheckedChanged += new System.EventHandler(this.cbSave_CheckedChanged);
@@ -208,7 +208,7 @@
 			this.cbLocal.Location = new System.Drawing.Point(276, 124);
 			this.cbLocal.Name = "cbLocal";
 			this.cbLocal.Size = new System.Drawing.Size(79, 18);
-			this.cbLocal.TabIndex = 18;
+			this.cbLocal.TabIndex = 8;
 			this.cbLocal.Text = "Из копии";
 			this.cbLocal.UseVisualStyleBackColor = true;
 			this.cbLocal.CheckedChanged += new System.EventHandler(this.cbLocal_CheckedChanged);

@@ -39,13 +39,20 @@ namespace YaFotki
 
 				while (xr.Read())
 				{
+					//todo: очень сильно глючит, надо внимательнее переписать
 					if (xr.NodeType == XmlNodeType.Element)
 					{
 						//Автор альбомов, название страницы и дата обновления
 						if (xr.Name == "title") Text = "Фото \"" + xr.ReadInnerXml();
 						if (xr.Name == "title") lTitle.Text  = xr.ReadInnerXml();
 						if (xr.Name == "name")  Text += "\", автор " + xr.ReadInnerXml();
-						if (xr.Name == "f:img" && xr.GetAttribute("size") == "orig") { pictureBox1.ImageLocation  = xr.GetAttribute("href"); }
+						if (Program.LocalOnly)
+						{
+							if (xr.Name == "f:img" && xr.GetAttribute("size") == "orig") { pictureBox1.ImageLocation = Program.PreparePath(xr.GetAttribute("href"), false); }
+						}else
+						{
+							if (xr.Name == "f:img" && xr.GetAttribute("size") == "orig") { pictureBox1.ImageLocation = xr.GetAttribute("href"); }
+						}
 						/*tMeta.Text += xr.ReadOuterXml() + "\r\n";*/
 					}
 				}

@@ -36,6 +36,7 @@ namespace YaFotki
 				MessageBox.Show("Введите локальный адрес и имя пользователя.","Экспорт Яндекс.Фоток",MessageBoxButtons.OK,MessageBoxIcon.Stop);
 				return;
 			}
+			if (!tLocal.Text.EndsWith("\\")) tLocal.Text += "\\";
 
 			bAlbums.Enabled = bAllPhoto.Enabled = bTags.Enabled = false;
 			lDetected.Text = "";
@@ -199,6 +200,7 @@ namespace YaFotki
 			Program.Save = cbSave.Checked;
 			cbLocal.Checked = false;
 			cbLocal.Enabled = !cbSave.Checked;
+			Program.SavePics =  (MessageBox.Show("Желаете скачивать оригиналы фотографий?","Экспорт Яндекс.Фоток",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) ? true : false;
 		}
 
 		private void cbLocal_CheckedChanged(object sender, EventArgs e)

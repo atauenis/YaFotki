@@ -64,7 +64,7 @@
 			this.bNext.Location = new System.Drawing.Point(447, 9);
 			this.bNext.Name = "bNext";
 			this.bNext.Size = new System.Drawing.Size(75, 23);
-			this.bNext.TabIndex = 2;
+			this.bNext.TabIndex = 3;
 			this.bNext.Text = "Далее";
 			this.bNext.UseVisualStyleBackColor = true;
 			this.bNext.Click += new System.EventHandler(this.bNext_Click);
@@ -79,7 +79,7 @@
 			this.lbItems.Name = "lbItems";
 			this.lbItems.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
 			this.lbItems.Size = new System.Drawing.Size(507, 485);
-			this.lbItems.TabIndex = 3;
+			this.lbItems.TabIndex = 1;
 			this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
 			this.lbItems.DoubleClick += new System.EventHandler(this.lbItems_DoubleClick);
 			// 
@@ -107,7 +107,7 @@
 			this.bSave.Location = new System.Drawing.Point(418, 9);
 			this.bSave.Name = "bSave";
 			this.bSave.Size = new System.Drawing.Size(23, 23);
-			this.bSave.TabIndex = 5;
+			this.bSave.TabIndex = 2;
 			this.bSave.TabStop = false;
 			this.bSave.UseVisualStyleBackColor = true;
 			this.bSave.Click += new System.EventHandler(this.bSave_Click);

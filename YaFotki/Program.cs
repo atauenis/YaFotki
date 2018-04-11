@@ -14,6 +14,7 @@ namespace YaFotki
 		public static string VirtualBase; //https://api-fotki.yandex.ru/api/users/qwerty/
 		public static bool Save;
 		public static bool LocalOnly;
+		public static bool SavePics = false;
 		public static Label NoLocal = new Label();
 
 		/// <summary>
@@ -39,8 +40,12 @@ namespace YaFotki
 
 			if (Save && Address.StartsWith("http"))
 			{
-				SaveUrl(Address, PreparePath(Address, true));
-				//todo: сделать скачивание не делая нового потока, шоб быстрей качалось
+				string path = PreparePath(Address, true);
+				NoLocal.Text = "Скачивание " + path.Replace(LocalBase,"") + "...";
+				Application.DoEvents();
+				SaveUrl(Address, path);
+				NoLocal.Text = "Открытие...";
+				return File.OpenRead(path);
 			}
 
 			if (Address.StartsWith("http")) return await new System.Net.Http.HttpClient().GetStreamAsync(Address);
@@ -49,10 +54,10 @@ namespace YaFotki
 
 		public static string PreparePath(string Address, bool MakePath=false) {
 			//подготовка локального пути
-			string path = Address.Replace(VirtualBase, LocalBase).Replace("/?","!").Replace('/','\\').Replace(':', '$');
+			string path = Address.Replace(VirtualBase, LocalBase).Replace("https://img-fotki.yandex.ru/get", LocalBase + "/img-fotki").Replace("/?","!").Replace('/','\\').Replace(':', '$');
 			ReplaceCharInString(ref path, 1, ':');
 			if (path.EndsWith("\\")) path += "INDEX.XML";
-			if (!path.EndsWith(".XML")) path += ".XML";
+			if (!path.EndsWith(".XML") & !path.EndsWith("orig")) path += ".XML";
 
 			//создание отсутствующих папок
 			if(MakePath) {
@@ -73,6 +78,7 @@ namespace YaFotki
 				wc.DownloadFile(URL, Where);
 			}
 			catch (Exception ex) {
+				if(ex.GetType() != typeof(WebException)) //говнокод, но работает
 				MessageBox.Show("Ошибка при скачивании:\n"+URL+"\nВ:\n"+Where+"\n\n"+
 				ex.Message+"\n"+ex.StackTrace +"\n\n"+
 				ex.InnerException.ToString() ?? "Вложенного исключения нет."
